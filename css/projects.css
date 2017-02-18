@@ -45,7 +45,7 @@
   outline: none;
 }
 .navbar-custom .nav li.active a {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 255, 255, 0.3);
 }
 .navbar-custom .nav li.active a:hover {
   color: white;
@@ -62,7 +62,7 @@
   }
   .navbar-custom.top-nav-collapse {
     padding: 0;
-    background: black;
+    background: #337ab7;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
