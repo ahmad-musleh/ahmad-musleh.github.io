@@ -6,7 +6,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #337ab7;
+  background-color: black;
 }
 .navbar-custom .navbar-toggle {
   color: white;
@@ -24,7 +24,7 @@
   outline: none;
 }
 .navbar-custom a {
-  color: white;
+  color: #00ffff;
 }
 .navbar-custom .nav li a {
   -webkit-transition: background 0.3s ease-in-out;
@@ -62,7 +62,7 @@
   }
   .navbar-custom.top-nav-collapse {
     padding: 0;
-    background: #337ab7;
+    background: #000000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
