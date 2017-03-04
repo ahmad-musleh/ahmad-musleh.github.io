@@ -1142,6 +1142,7 @@ img {
 }
 .img-circle {
   border-radius: 50%;
+  border: 5px solid #00FFFF;
 }
 hr {
   margin-top: 20px;
