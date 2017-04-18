@@ -176,9 +176,43 @@
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star-empty"></span> -->
-                    Author
                     <!-- <span class="pull-right">10 days ago</span> -->
-                    <p>The name of the book that is called the </p>
+                    <script src=js/retrieve_books.js></script>
+                    <!-- <script src=https://cdn.rawgit.com/evanplaice/jquery-csv/master/src/jquery.csv.js></script> -->
+                    <script>
+                        theUrl="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pub?gid=393466064&single=true&output=csv"
+                        var data=[]
+                        //from http://stackoverflow.com/a/22076667/6433745
+                        var client = new HttpClient();
+                        client.get(theUrl, function(response) {
+
+                            var data = response.split(/\r\n|\n/);
+
+                            var books = document.getElementById('books');
+                            var build = "<thead>\
+                                            <tr> \
+                                                <th>" + data[0].split(/,/)[0] + "</th> \
+                                                <th>" + data[0].split(/,/)[1] + "</th> \
+                                            </tr> \
+                                        </thead>";
+                            build+= "<tbody>";
+                            for (var i = 1; i < data.length; i++) {
+                                name_author = data[i].split(/,/);
+                                build += "<tr>";
+                                build += ("<td> " + name_author[0] + "</td><td> " + name_author[1] + "</td>");
+                                build += "</tr>";
+                            }
+                            build+="</tbody>";
+                            books.innerHTML = build;
+
+                        });
+                    </script>
+
+                    <div class="container">
+                        <table class="table" id=books>
+
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -190,13 +224,13 @@
         <hr class="featurette-divider">
 
         <!-- Footer -->
-        <footer>
+        <!-- <footer>
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
-        </footer>
+        </footer> -->
 
     </div>
     <!-- /.container -->
