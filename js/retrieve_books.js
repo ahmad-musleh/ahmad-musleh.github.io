@@ -40,7 +40,7 @@ function buildTable(text) {
 
     var data = text.split(/\r\n|\n/);
 
-    var books = document.getElementById('books');
+    // var books = document.getElementById('books');
     var build = "<thead>\
                     <tr> \
                         <th>" + data[0].split(/,/)[0] + "</th> \
@@ -52,6 +52,29 @@ function buildTable(text) {
         name_author = data[i].split(/,/);
         build += "<tr>";
         build += ("<td> " + name_author[0] + "</td><td> " + name_author[1] + "</td>");
+        build += "</tr>";
+    }
+    build+="</tbody>";
+    return build;
+}
+
+function buildTableFromVar(data) {
+    // var data=[]
+
+    // var data = text.split(/\r\n|\n/);
+
+    // var books = document.getElementById('books');
+    var build = "<thead>\
+                    <tr> \
+                        <th>" + data[0][0] + "</th> \
+                        <th>" + data[0][1] + "</th> \
+                    </tr> \
+                </thead>";
+    build+= "<tbody>";
+    for (var i = 1; i < data.length; i++) {
+        // name_author = data[i].split(/,/);
+        build += "<tr>";
+        build += ("<td> " + data[i][0] + "</td><td> " + data[i][1] + "</td>");
         build += "</tr>";
     }
     build+="</tbody>";

@@ -177,7 +177,7 @@
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star-empty"></span> -->
                     <!-- <span class="pull-right">10 days ago</span> -->
-                    <!-- <script src=js/retrieve_books.js></script> -->
+                    <script src=js/retrieve_books.js></script>
                     <!-- <script src=https://cdn.rawgit.com/evanplaice/jquery-csv/master/src/jquery.csv.js></script> -->
                     <!-- <script>
                         // theUrl="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pub?gid=393466064&single=true&output=csv"
@@ -206,13 +206,28 @@
                         xhr.send();
 
                     </script> -->
-                    <div class="embed-responsive embed-responsive-16by9">
+                    <!-- <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pubhtml?gid=393466064&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-                    </div>
+                    </div> -->
 
+                    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+                    <script src="js/require.js"></script>
+                    <script src=books.js></script>
                     <div class="container">
                         <table class="table" id=books>
+                            <!-- <script src=books.json></script> -->
+                            <script type="text/javascript">
+                            // $.getJSON("books.json", function(json) {
+                            //     alert(json);
+                            //     console.log(json); // this will show the info it in firebug console
+                            // });
+                            // var json=require(['books.js'], function (json){
+                            //     alert (json['books']);
+                            // });
+                                table=buildTableFromVar(books);
+                                document.getElementById('books').innerHTML=table;
 
+                            </script>
                         </table>
                     </div>
                 </div>
