@@ -180,10 +180,13 @@
                     <script src=js/retrieve_books.js></script>
                     <!-- <script src=https://cdn.rawgit.com/evanplaice/jquery-csv/master/src/jquery.csv.js></script> -->
                     <script>
-                        theUrl="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pub?gid=393466064&single=true&output=csv"
+                        // theUrl="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pub?gid=393466064&single=true&output=csv"
+                        theUrl="https://sheets.googleapis.com/v4/spreadsheets/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0"
                         var url = theUrl;
-                        var xhr = createCORSRequest('POST', url);
-                        xhr.setRequestHeader('X-Custom-Header', 'value');
+                        // var xhr = createCORSRequest('GET', url);
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', 'url');
+                        // xhr.setRequestHeader('X-Custom-Header', 'value');
                         if (!xhr) {
                           alert('CORS not supported');
                         }
@@ -191,8 +194,8 @@
                         // Response handlers.
                         xhr.onload = function() {
                             var text = xhr.responseText;
+                            alert(text);
                             var build = buildTable(text);
-                            // alert(text);
                             books.innerHTML = build;
                         };
 
