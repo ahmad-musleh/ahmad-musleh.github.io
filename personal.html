@@ -181,31 +181,26 @@
                     <!-- <script src=https://cdn.rawgit.com/evanplaice/jquery-csv/master/src/jquery.csv.js></script> -->
                     <script>
                         theUrl="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pub?gid=393466064&single=true&output=csv"
-                        var data=[]
-                        //from http://stackoverflow.com/a/22076667/6433745
-                        var client = new HttpClient();
-                        client.get(theUrl, function(response) {
+                        var url = theUrl;
+                        var xhr = createCORSRequest('GET', url);
+                        if (!xhr) {
+                          alert('CORS not supported');
+                        }
 
-                            var data = response.split(/\r\n|\n/);
-
-                            var books = document.getElementById('books');
-                            var build = "<thead>\
-                                            <tr> \
-                                                <th>" + data[0].split(/,/)[0] + "</th> \
-                                                <th>" + data[0].split(/,/)[1] + "</th> \
-                                            </tr> \
-                                        </thead>";
-                            build+= "<tbody>";
-                            for (var i = 1; i < data.length; i++) {
-                                name_author = data[i].split(/,/);
-                                build += "<tr>";
-                                build += ("<td> " + name_author[0] + "</td><td> " + name_author[1] + "</td>");
-                                build += "</tr>";
-                            }
-                            build+="</tbody>";
+                        // Response handlers.
+                        xhr.onload = function() {
+                            var text = xhr.responseText;
+                            var build = buildTable(text);
+                            // alert(text);
                             books.innerHTML = build;
+                        };
 
-                        });
+                        xhr.onerror = function() {
+                          alert('Woops, there was an error making the request.');
+                        };
+
+                        xhr.send();
+
                     </script>
 
                     <div class="container">
@@ -221,7 +216,7 @@
 
         </div>
 
-        <hr class="featurette-divider">
+        <!-- <hr class="featurette-divider"> -->
 
         <!-- Footer -->
         <!-- <footer>
