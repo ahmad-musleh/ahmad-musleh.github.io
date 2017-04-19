@@ -182,7 +182,8 @@
                     <script>
                         theUrl="https://docs.google.com/spreadsheets/d/1DHuTEkn2hpNv9IXrqcgYZyQxSYQGrJlZAiyWG_RL9s0/pub?gid=393466064&single=true&output=csv"
                         var url = theUrl;
-                        var xhr = createCORSRequest('GET', url);
+                        var xhr = createCORSRequest('POST', url);
+                        // xhr.setRequestHeader('X-Custom-Header', 'value');
                         if (!xhr) {
                           alert('CORS not supported');
                         }
