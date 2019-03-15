@@ -3,4 +3,4 @@
 	url = https://github.com/ahmad-musleh/Visual-Musleh.git
 [submodule "resume"]
 	path = resume
-	url = git@github.com:ahmad-musleh/ahmad-musleh-resume.git
+	url = https://github.com/ahmad-musleh/ahmad-musleh-resume.git
